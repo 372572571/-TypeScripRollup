@@ -1,0 +1,5 @@
+// .babelrc文件
+{
+    "presets": [], // 预设
+    "plugins": [] // 插件
+}
