@@ -20,7 +20,14 @@ export default [
             file: pkg.browser,
             format: "umd",
         },
-        plugins: [resolve(), commonjs(), typescript()],
+        plugins: [
+            resolve(),
+            commonjs(),
+            typescript(),
+            babel({
+                exclude: "node_modules/**", // 排除文件
+            }),
+        ],
     },
     // CommonJS for Node and ES module for bundlers build
     {
