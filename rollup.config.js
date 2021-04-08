@@ -14,11 +14,11 @@ import pkg from "./package.json";
 export default [
     // UMD for browser-friendly build
     {
-        input: "src/index.ts",
+        input: "src/index.ts",// 入口文件
         output: {
             name: "howLongUntilLunch",
             file: pkg.browser,
-            format: "umd",
+            format: "umd", // 规范
         },
         plugins: [
             resolve(),
@@ -30,13 +30,13 @@ export default [
         ],
     },
     // CommonJS for Node and ES module for bundlers build
-    {
-        input: "src/index.ts",
-        external: ["ms"],
-        plugins: [typescript()],
-        output: [
-            { file: pkg.main, format: "cjs" },
-            { file: pkg.module, format: "es" },
-        ],
-    },
+    // {
+    //     input: "src/index.ts",
+    //     external: ["ms"],
+    //     plugins: [typescript()],
+    //     output: [
+    //         { file: pkg.main, format: "cjs" },
+    //         { file: pkg.module, format: "es" },
+    //     ],
+    // },
 ];
