@@ -1,18 +1,15 @@
 // // .babelrc文件
 // {
-//     "presets": [], // 预设
+//     "presets": [["es2015", { "modules": false }]], // 预设
 //     "plugins": [] // 插件
 // }
+// {
+//     "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+//     "plugins": ["transform-class-properties"] // 插件
+//     // "plugins": [["transform-class-properties", { "spec": true }]]
+// }
+
 {
-    "presets": [
-        [
-            "latest",
-            {
-                "es2015": {
-                    "modules": false
-                }
-            }
-        ]
-    ],
-    "plugins": ["external-helpers"]
+    "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+    "plugins": ["transform-class-properties"] // 插件
 }

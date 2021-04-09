@@ -5,6 +5,7 @@
   "main": "dist/virtual-list.cjs.js",
   "module": "dist/virtual-list.esm.js",
   "browser": "dist/virtual-list.umd.js",
+  "main_umd":"dist/virtual-list.main_umd.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -16,19 +17,25 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/ms": "^0.7.31",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "rollup": "^2.44.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript": "^1.0.1",
     "ts-node": "^9.1.1",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
