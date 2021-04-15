@@ -1,34 +1,37 @@
 {
-  "name": "Template",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/virtual-list.cjs.js",
-  "module": "dist/virtual-list.esm.js",
-  "browser": "dist/virtual-list.umd.js",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "ts-node test/test.ts",
-    "pretest": "npm run build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@types/ms": "^0.7.31",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-latest": "^6.24.1",
-    "rollup": "^2.44.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript": "^1.0.1",
-    "ts-node": "^9.1.1",
-    "tslib": "^2.2.0",
-    "typescript": "^4.2.4"
-  },
-  "dependencies": {}
+    "name": "Template",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/virtual-list.cjs.js",
+    "module": "dist/virtual-list.esm.js",
+    "browser": "main.js",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "test": "ts-node test/test.ts",
+        "pretest": "npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.13.14",
+        "@types/lodash": "^4.14.168",
+        "@types/ms": "^0.7.31",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-preset-latest": "^6.24.1",
+        "rollup": "^2.44.0",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-typescript": "^1.0.1",
+        "ts-node": "^9.1.1",
+        "tslib": "^2.2.0",
+        "typescript": "^4.2.4"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21"
+    }
 }
