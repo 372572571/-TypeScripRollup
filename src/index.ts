@@ -17,3 +17,6 @@ list_string.forEach((val) => {
         res_list.push(new GoFunc(mod, func_name, req_name));
     }
 });
+
+const handle_string = "";
+const router_string = "";
