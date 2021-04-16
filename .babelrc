@@ -1,18 +1,6 @@
 // // .babelrc文件
-// {
-//     "presets": [], // 预设
-//     "plugins": [] // 插件
-// }
 {
-    "presets": [
-        [
-            "latest",
-            {
-                "es2015": {
-                    "modules": false
-                }
-            }
-        ]
-    ],
-    "plugins": ["external-helpers"]
+    "presets": [], // 预设
+    "plugins": [] // 插件
 }
+

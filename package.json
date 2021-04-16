@@ -10,7 +10,7 @@
         "dev": "rollup -c -w",
         "test": "ts-node test/test.ts",
         "pretest": "npm run build",
-        "task":"node ./main.js test"
+        "task": "node ./main.js test"
     },
     "keywords": [],
     "author": "",
@@ -33,6 +33,7 @@
         "typescript": "^4.2.4"
     },
     "dependencies": {
+        "got": "^11.8.2",
         "lodash": "^4.17.21"
     }
 }

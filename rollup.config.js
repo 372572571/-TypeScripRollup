@@ -21,12 +21,12 @@ export default [
             format: "umd", // 规范
         },
         plugins: [
-            resolve(),
-            commonjs(),
+            // resolve(),
+            // commonjs(),
             typescript(),
-            babel({
-                exclude: "node_modules/**", // 排除文件
-            }),
+            // babel({
+            //     exclude: "node_modules/**", // 排除文件
+            // }),
         ],
     },
     // CommonJS for Node and ES module for bundlers build

@@ -1,0 +1,350 @@
+
+//not
+func CreateOrder(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.CreateOrderReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.CreateOrder(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func GetOrderInfos(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.GetOrderInfosReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.GetOrderInfos(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func GetOrderInfo(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.GetOrderInfoReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.GetOrderInfo(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func AddOrderProducts(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.AddOrderProductsReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.AddOrderProducts(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func DelOrderProducts(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.DelOrderProductsReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.DelOrderProducts(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func AddOrderLogistics(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.AddOrderLogisticsReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.AddOrderLogistics(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func UpdateOrderLogistics(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.UpdateOrderLogisticsReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.UpdateOrderLogistics(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func OrderLogisticsDelivery(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.OrderLogisticsDeliveryReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.OrderLogisticsDelivery(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func OrderLogisticsReceiving(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.OrderLogisticsReceivingReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.OrderLogisticsReceiving(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func OrderPay(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.OrderPayReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.OrderPay(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func SetOrderActualPayment(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.SetOrderActualPaymentReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.SetOrderActualPayment(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func OrderComplete(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.OrderCompleteReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.OrderComplete(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func UseCoupon(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.UseCouponReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.UseCoupon(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+
+
+//not
+func CalOrderAmount(c *gin.Context) {
+	// 获取数据
+	data, err := c.GetRawData()
+	if err != nil {
+		c.String(http.StatusInternalServerError, err.Error())
+		return
+	}
+	// 数据填充结构
+	req := pb.CalOrderAmountReq{}
+	if err = json.Unmarshal(data, &req); err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 调用RPC服务
+	results, err := client.OrderClient.CalOrderAmount(context.Background(), &req)
+	if err != nil {
+		c.String(http.StatusOK, err.Error())
+		return
+	}
+	// 返回结果
+	c.JSON(http.StatusOK, results)
+}
+

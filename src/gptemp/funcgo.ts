@@ -16,14 +16,12 @@ func ${fun}(c *gin.Context) {
 		c.String(http.StatusOK, err.Error())
 		return
 	}
-	log.Println("AddCategory", req.Desc, req.Name, req.ParentId)
 	// 调用RPC服务
 	results, err := client.${service}Client.${fun}(context.Background(), &req)
 	if err != nil {
 		c.String(http.StatusOK, err.Error())
 		return
 	}
-	log.Println(results)
 	// 返回结果
 	c.JSON(http.StatusOK, results)
 }
