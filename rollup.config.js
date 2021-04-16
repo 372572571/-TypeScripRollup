@@ -45,7 +45,7 @@ export default [
         input: "src/index.ts", // 入口文件
         output: {
             name: "howLongUntilLunch",
-            file: pkg.main,
+            file: pkg.main_umd,
             format: "umd", // 规范
         },
         plugins: [
