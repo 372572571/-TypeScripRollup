@@ -17218,29 +17218,61 @@
 	        });
 	        return res.join("");
 	    };
+	    StringUtils.GetFunName = function (val) {
+	        val = lodash.trim(val);
+	        var reg_name = RegExp("^[a-z A-Z]{1,}").exec(val);
+	        var func_name = reg_name ? reg_name[0] : undefined;
+	        return func_name;
+	    };
+	    StringUtils.GetFunReqName = function (val) {
+	        val = lodash.trim(val);
+	        var name = RegExp("[*]{1}[a-zA-Z]{1,}").exec(val);
+	        var res;
+	        if (name && name[0]) {
+	            res = lodash.trim(name[0], "*");
+	        }
+	        return res;
+	    };
 	    return StringUtils;
 	}());
 
-	var FilePath = process.argv[2];
-	console.log(FilePath);
-	var format = "utf8";
-	var data = fs__default['default'].readFileSync(FilePath, format);
-	var arr = data.split("`");
-	var resList = {};
-	arr.forEach(function (val) {
-	    if (val.includes("protobuf:")) {
-	        return;
+	function HandleTemplate(service, fun, req, doc) {
+	    return "\n//" + doc + "\nfunc " + fun + "(c *gin.Context) {\n\t// \u83B7\u53D6\u6570\u636E\n\tdata, err := c.GetRawData()\n\tif err != nil {\n\t\tc.String(http.StatusInternalServerError, err.Error())\n\t\treturn\n\t}\n\t// \u6570\u636E\u586B\u5145\u7ED3\u6784\n\treq := pb." + req + "{}\n\tif err = json.Unmarshal(data, &req); err != nil {\n\t\tc.String(http.StatusOK, err.Error())\n\t\treturn\n\t}\n\tlog.Println(\"AddCategory\", req.Desc, req.Name, req.ParentId)\n\t// \u8C03\u7528RPC\u670D\u52A1\n\tresults, err := client." + service + "Client." + fun + "(context.Background(), &req)\n\tif err != nil {\n\t\tc.String(http.StatusOK, err.Error())\n\t\treturn\n\t}\n\tlog.Println(results)\n\t// \u8FD4\u56DE\u7ED3\u679C\n\tc.JSON(http.StatusOK, results)\n}\n";
+	}
+	function RouterTemplate(fun, doc) {
+	    return "Router.POST(\"/" + StringUtils.HumpLine(fun) + "\", handle." + fun + ")//" + doc;
+	}
+
+	var GoFunc = /** @class */ (function () {
+	    function GoFunc(service, name, req) {
+	        this.func_name = name;
+	        this.req_name = req;
+	        this.service = service;
+	        this.initHandle();
+	        this.initRouter();
 	    }
-	    var temp = lodash.trim(val).split(" ");
-	    var res = lodash.remove(temp, function (s) {
-	        return /[a-z,A-Z]/.test(s);
-	    });
-	    if (res.length !== 2) {
-	        return;
+	    GoFunc.prototype.initRouter = function () {
+	        this.router = RouterTemplate(this.func_name, "not");
+	    };
+	    GoFunc.prototype.initHandle = function () {
+	        this.handle = HandleTemplate(this.service, this.func_name, this.req_name, "not");
+	    };
+	    return GoFunc;
+	}());
+
+	var path = process.argv[2];
+	var mod = process.argv[3] ? process.argv[3] : "test";
+	var UTF8 = "utf8";
+	var file_data = fs__default['default'].readFileSync(path, UTF8);
+	var list_string = file_data.split("//");
+	var res_list = [];
+	list_string.forEach(function (val) {
+	    val = lodash.trim(val);
+	    var func_name = StringUtils.GetFunName(val);
+	    var req_name = StringUtils.GetFunReqName(val);
+	    if (func_name && req_name) {
+	        res_list.push(new GoFunc(mod, func_name, req_name));
 	    }
-	    console.log(res);
-	    resList[StringUtils.HumpLine(res[0])] = res[1].includes("int") || res[1].includes("float") ? 1 : "string";
 	});
-	console.log(JSON.stringify(resList));
 
 })));
