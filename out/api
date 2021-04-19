@@ -1,0 +1,40 @@
+// @req {"name":"","type":0,"discount":0,"max_value":0,"value":0,"enable":0,"start_time":{"low":0,"high":0,"unsigned":false},"end_time":{"low":0,"high":0,"unsigned":false}}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/create_coupon_temp", handle.CreateCouponTemp)//not
+
+// @req {"temp_id":0,"num":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/create_coupons", handle.CreateCoupons)//not
+
+// @req {"temp_id":0,"user_id":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/user_get_coupon", handle.UserGetCoupon)//not
+
+// @req {"user_id":0}
+// @resp {}
+Router.POST("/get_user_coupon_infos", handle.GetUserCouponInfos)//not
+
+// @req {"coupon_id":0}
+// @resp {}
+Router.POST("/get_coupon_info", handle.GetCouponInfo)//not
+
+// @req {"user_id":0,"coupon_id":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/user_order", handle.UserOrder)//not
+
+// @req {"user_id":0,"coupon_id":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/user_cancel_order", handle.UserCancelOrder)//not
+
+// @req {"user_id":0,"coupon_id":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/user_complete_order", handle.UserCompleteOrder)//not
+
+// @req {"temp_id":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/enable_coupons", handle.EnableCoupons)//not
+
+// @req {"temp_id":0}
+// @resp {"Code":0,"Msg":"","Data":""}
+Router.POST("/disable_coupons", handle.DisableCoupons)//not
+

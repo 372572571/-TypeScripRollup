@@ -11,7 +11,7 @@ func ${fun}(c *gin.Context) {
 		return
 	}
 	// 数据填充结构
-	req := pb.${req}{}
+	req := pb_${service}.${req}{}
 	if err = json.Unmarshal(data, &req); err != nil {
 		c.String(http.StatusOK, err.Error())
 		return

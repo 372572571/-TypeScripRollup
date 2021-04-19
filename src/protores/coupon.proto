@@ -1,0 +1,105 @@
+
+
+syntax = "proto3";
+package coupon;
+
+
+option go_package = "./;coupon";
+
+// The coupon service definition.
+service Coupon {
+    rpc Create_coupon_temp(Create_coupon_temp_req) returns (Common_resp); 
+    rpc Create_coupons(Create_coupons_req) returns (Common_resp); 
+    rpc User_get_coupon(User_get_coupon_req) returns (Common_resp); 
+    rpc Get_user_coupon_infos(Get_user_coupon_infos_req) returns (Get_user_coupon_infos_resp); 
+    rpc Get_coupon_info(Get_coupon_info_req) returns (Get_coupon_info_resp); 
+    rpc User_order(User_order_req) returns (Common_resp); 
+    rpc User_cancel_order(User_cancel_order_req) returns (Common_resp); 
+    rpc User_complete_order(User_complete_order_req) returns (Common_resp); 
+    rpc Enable_coupons(Enable_coupons_req) returns (Common_resp); 
+    rpc Disable_coupons(Disable_coupons_req) returns (Common_resp); }
+
+message Common_resp {
+ int32 Code = 1; 
+ string Msg = 2; 
+ string Data = 3; }
+
+
+message Create_coupon_temp_req {
+  string name = 1;
+  int32 type = 2; 
+  double discount = 3;
+  double max_value = 4;
+  double value = 5;
+  int32 enable = 6;
+  int64 start_time = 7;
+  int64 end_time = 8; }
+
+
+
+message Create_coupons_req {
+  uint32 temp_id = 1; 
+  uint32 num = 2; }
+
+
+message User_get_coupon_req {
+  uint32 temp_id = 1;  
+  uint32 user_id = 2;  }
+
+
+message Get_user_coupon_infos_req {
+  uint32 user_id = 1;  }
+
+
+
+enum    Coupon_type             { 
+  Coupon_type_begin                  = 0;
+  Coupon_type_exp                  = 1 ;//////体验
+  Coupon_type_discount                  = 2; //////折扣
+  Coupon_type_quantity                  = 3; //////定额
+  Coupon_type_end                  = 4; }
+
+message Coupon_info {
+  uint32 id = 1;
+  uint32 temp_id = 2;
+  uint32 user_id = 3;
+  string name = 4;
+  int32 type = 5;
+  double discount = 6;
+  double max_value = 7;
+  double value = 8;
+  int32 enable = 9;
+  int32 status = 10;
+  int64 starttime = 11;
+  int64 endtime = 12;
+  int64 createdat = 13; }
+   
+message Get_user_coupon_infos_resp {
+  Common_resp common_resp = 1;  
+  repeated Coupon_info coupon_infos = 2; }
+
+message User_order_req {
+  uint32 user_id = 1;
+  uint32 coupon_id = 2; }
+
+message User_cancel_order_req {
+  uint32 user_id = 1;
+  uint32 coupon_id = 2; }
+
+message User_complete_order_req {
+  uint32 user_id = 1;
+  uint32 coupon_id = 2; }
+
+
+message Enable_coupons_req {
+  uint32 temp_id = 1; }
+
+message Disable_coupons_req {
+  uint32 temp_id = 1; }
+
+
+message Get_coupon_info_req {
+  uint32 coupon_id = 1; }
+
+message Get_coupon_info_resp {
+  Coupon_info coupon_info = 1; }

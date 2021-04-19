@@ -1,0 +1,13 @@
+
+ --keep-case 保持字段大小写
+ --force-long     Enforces the use of 'Long' for s-/u-/int64 and s-/fixed64 fields.
+ --force-number   Enforces the use of 'number' for s-/u-/int64 and s-/fixed64 fields.
+ --force-message  Enforces the use of message instances instead of plain objects.
+
+pbjs -t static-module -w es6 -o src/protores/testservice.js src/protores/testservice.proto
+pbts -o src/protores/testservice.d.ts src/protores/testservice.js 
+
+
+coupon
+pbjs -t static-module -w es6 -o src/protores/coupon.js src/protores/coupon.proto --keep-case --force-number --force-message
+pbts -o src/protores/coupon.d.ts src/protores/coupon.js 
